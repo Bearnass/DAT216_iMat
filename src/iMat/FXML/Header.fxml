@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="Header" prefHeight="80.0" prefWidth="1400.0" styleClass="Header" stylesheets="@../CSS/HeaderStyle.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.Header">
+   <rotationAxis>
+      <Point3D />
+   </rotationAxis>
+   <children>
+      <TextField id="searchBar" layoutX="420.0" layoutY="19.0" maxHeight="42.0" maxWidth="600.0" prefHeight="42.0" prefWidth="600.0" promptText="Sök vara..." styleClass="searchBar" stylesheets="@../CSS/HeaderStyle.css" />
+   </children>
+</AnchorPane>
