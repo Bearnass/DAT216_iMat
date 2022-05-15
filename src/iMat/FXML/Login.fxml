@@ -7,7 +7,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="472.0" prefWidth="314.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label fx:id="loginLogoLabel" layoutX="110.0" layoutY="26.0" text="IMAT" textAlignment="CENTER">
@@ -24,5 +23,6 @@
             <Font size="16.0" />
          </font>
       </Button>
+      <Button fx:id="loginExitButton" layoutX="257.0" layoutY="14.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="42.0" />
    </children>
 </AnchorPane>
