@@ -3,13 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package imatmini;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import se.chalmers.cse.dat216.project.Product;
 
 /**
  *
@@ -40,5 +42,7 @@ public class IMatMini extends Application {
         }
         }));
     }
+
+
     
 }

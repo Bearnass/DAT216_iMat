@@ -1,0 +1,27 @@
+@font-face {
+    -fx-font-family: "Montserrat";
+    src: url('Montserrat-VariableFont_wght.ttf');
+}
+
+.Header{
+    -fx-background-color: #3E6B85;
+
+}
+
+.searchBar{
+    -fx-background-radius: 10;
+}
+
+.searchBar:hover{
+    -fx-border-color: #F26565;
+    -fx-border-radius: 10;
+}
+
+.varukorgButton{
+    -fx-background-color: #F26565;
+    -fx-background-radius: 22;
+}
+
+.iMatLogga, .varukorgText, .Header {
+    -fx-font-family: "Montserrat";
+}

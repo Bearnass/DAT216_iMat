@@ -3,14 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package imatmini;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 
 /**
- * iMat.FXML Controller class
+ * imatmini.FXML Controller class
  *
  * @author oloft
  */

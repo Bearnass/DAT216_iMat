@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package imatmini;
 
 import java.net.URL;
 import java.util.List;
@@ -33,7 +32,7 @@ public class iMatMiniController implements Initializable, ShoppingCartListener {
     @FXML
     private AnchorPane shopPane;
     @FXML
-    private TextField searchField;
+    private TextField searchBar;
     @FXML
     private Label itemsLabel;
     @FXML
@@ -71,7 +70,7 @@ public class iMatMiniController implements Initializable, ShoppingCartListener {
     @FXML
     private void handleSearchAction(ActionEvent event) {
         
-        List<Product> matches = model.findProducts(searchField.getText());
+        List<Product> matches = model.findProducts(searchBar.getText());
         updateProductList(matches);
         System.out.println("# matching products: " + matches.size());
 
@@ -130,7 +129,7 @@ public class iMatMiniController implements Initializable, ShoppingCartListener {
 
         for (Product product : products) {
 
-            productsFlowPane.getChildren().add(new ProductPanel(product));
+            productsFlowPane.getChildren().add(new ItemCardController(product));
         }
 
     }
