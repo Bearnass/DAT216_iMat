@@ -5,6 +5,7 @@
  */
 
 import java.net.URL;
+import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -27,6 +28,7 @@ import se.chalmers.cse.dat216.project.ShoppingCartListener;
  * @author oloft
  */
 public class iMatMiniController implements Initializable, ShoppingCartListener {
+    HashMap<String, ItemCardController> itemCardController = new HashMap<>();
     
     // Shopping Pane
     @FXML
@@ -96,14 +98,26 @@ public class iMatMiniController implements Initializable, ShoppingCartListener {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        model.clearShoppingCart();
         model.getShoppingCart().addShoppingCartListener(this);
+        initProducts();
 
-        updateProductList(model.getProducts());
         updateBottomPanel();
         
         setupAccountPane();
         
-    }    
+    }
+
+    void initProducts(){
+        productsFlowPane.getChildren().clear();
+        productsFlowPane.setHgap(20);
+        productsFlowPane.setVgap(20);
+        for (Product product : model.getProducts()){
+            ItemCardController itemCardController1 = new ItemCardController(product, this);
+            itemCardController.put(product.getName(), itemCardController1);
+            productsFlowPane.getChildren().add(itemCardController1);
+        }
+    }
     
     // Navigation
     public void openAccountView() {
@@ -128,8 +142,9 @@ public class iMatMiniController implements Initializable, ShoppingCartListener {
         productsFlowPane.getChildren().clear();
 
         for (Product product : products) {
-
-            productsFlowPane.getChildren().add(new ItemCardController(product));
+            if(itemCardController.containsKey(product.getName())){
+                productsFlowPane.getChildren().add(itemCardController.get(product.getName()));
+            }
         }
 
     }
@@ -137,9 +152,7 @@ public class iMatMiniController implements Initializable, ShoppingCartListener {
     private void updateBottomPanel() {
         
         ShoppingCart shoppingCart = model.getShoppingCart();
-        
-        itemsLabel.setText("Antal varor: " + shoppingCart.getItems().size());
-        costLabel.setText("Kostnad: " + String.format("%.2f",shoppingCart.getTotal()));
+        costLabel.setText(String.format("%.2f",shoppingCart.getTotal()));
         
     }
     

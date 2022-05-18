@@ -4,15 +4,17 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import se.chalmers.cse.dat216.project.CartEvent;
 import se.chalmers.cse.dat216.project.Product;
 
 import javafx.scene.control.Label;
+import se.chalmers.cse.dat216.project.ShoppingCartListener;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 
-public class ItemCardController extends AnchorPane {
+public class ItemCardController extends AnchorPane implements ShoppingCartListener {
     @FXML Label itemCardPriceLabel;
     @FXML Label itemCardNameLabel;
     @FXML Label itemCardBrandLabel;
@@ -26,9 +28,9 @@ public class ItemCardController extends AnchorPane {
 
     private final static double kImageWidth = 100.0;
     private final static double kImageRatio = 0.75;
-    private Product product;
+    private ShoppingItem shoppingItem;
     private Model model = Model.getInstance();
-    public ItemCardController(Product product){
+    public ItemCardController(Product product, iMatMiniController parentController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ItemCard.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -39,41 +41,71 @@ public class ItemCardController extends AnchorPane {
             throw new RuntimeException(exception);
         }
 
-        this.product = product;
+        this.shoppingItem = new ShoppingItem(product, 0);
         itemCardNameLabel.setText(product.getName());
-        itemCardPriceLabel.setText(String.format("%.2f", product.getPrice()) + " " + product.getUnit());
+        itemCardPriceLabel.setText(String.format("%.2f", product.getPrice()) + " " + ":-");
+        itemCardReferencePriceLabel.setText(product.getUnit());
         itemCardImageImageView.setImage(model.getImage(product, kImageWidth, kImageWidth*kImageRatio));
         if (!product.isEcological()) {
             itemCardBrandLabel.setText("");
         }
+
+        model.getShoppingCart().addShoppingCartListener(this);
     }
 
     @FXML
     public void setAmountWareField(){
-        String tempe = Integer.toString(model.getShoppingCart().getItems().size());
-        amountWareField.setText(tempe);
+        amountWareField.setText((int) shoppingItem.getAmount() + "");
     }
 
     @FXML
     public void addFirstWare(){
-        model.addToShoppingCart(product);
         addWareButton.setVisible(false);
-        setAmountWareField();
     }
 
     @FXML
     public void increaseWares(){
-        model.addToShoppingCart(product);
+        shoppingItem.setAmount((int) shoppingItem.getAmount() + 1);
         setAmountWareField();
+
+        if (shoppingItem.getAmount() < 2){
+            model.getShoppingCart().addItem(shoppingItem);
+        }
+        model.getShoppingCart().fireShoppingCartChanged(shoppingItem, true);
     }
 
     @FXML
     public void reduceWares(){
-        int temp = model.getShoppingCart().getItems().size();
-        model.clearShoppingCart();
-        for (int i = 0; i < temp - 1; i++) {
-            model.addToShoppingCart(product);
+        if (shoppingItem.getAmount() > 0){
+            shoppingItem.setAmount((int) shoppingItem.getAmount() - 1);
+        }
+        if (shoppingItem.getAmount() == 0){
+            model.getShoppingCart().removeItem(shoppingItem);
         }
         setAmountWareField();
+        model.getShoppingCart().fireShoppingCartChanged(shoppingItem, true);
+    }
+
+    @FXML
+    public void changeAmount(){
+        if (Integer.parseInt(amountWareField.getText()) >= 0){
+            int changeAmount = Integer.parseInt(amountWareField.getText());
+            System.out.println(changeAmount);
+            shoppingItem.setAmount(changeAmount);
+            if (!model.getShoppingCart().getItems().contains(shoppingItem)){
+                model.getShoppingCart().addItem(shoppingItem);
+            }
+            else if (changeAmount == 0){
+                model.getShoppingCart().removeItem(shoppingItem);
+            }
+            model.getShoppingCart().fireShoppingCartChanged(shoppingItem, true);
+        }else {
+            amountWareField.setText("0");
+        }
+    }
+
+    @Override
+    public void shoppingCartChanged(CartEvent cartEvent) {
+        amountWareField.setText((int)shoppingItem.getAmount() + "");
     }
 }

@@ -14,7 +14,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMatMiniController">
     <children>
-      <StackPane layoutX="680.0" layoutY="239.0" prefHeight="560.0" prefWidth="720.0">
+      <StackPane layoutX="400.0" layoutY="225.0" prefHeight="560.0" prefWidth="1000.0">
          <children>
             <AnchorPane fx:id="accountPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgba(0, 0, 0, 0.75);">
                <children>
@@ -43,19 +43,17 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="shopPane" prefHeight="240.0" prefWidth="720.0" style="-fx-background-color: #FFF000;">
+            <AnchorPane fx:id="shopPane" prefHeight="561.0" prefWidth="1000.0" style="-fx-background-color: #FFF000;">
                <children>
-                  <AnchorPane layoutY="501.0" prefHeight="59.0" prefWidth="720.0" style="-fx-background-color: #ff6600;">
+                  <AnchorPane layoutY="501.0" prefHeight="59.0" prefWidth="1000.0" style="-fx-background-color: #ff6600;">
                      <children>
                         <Button layoutX="14.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleClearCartAction" text="Töm" />
                         <Button layoutX="663.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleBuyItemsAction" text="Köp" />
-                        <Label fx:id="itemsLabel" layoutX="139.0" layoutY="21.0" prefHeight="17.0" prefWidth="150.0" text="Antal varor: 3456" />
-                        <Label fx:id="costLabel" layoutX="479.0" layoutY="21.0" text="Kostnad: 3456.60" />
                      </children>
                   </AnchorPane>
                   <ScrollPane hbarPolicy="NEVER" layoutY="102.0" prefHeight="398.0" prefWidth="720.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="102.0">
                      <content>
-                        <FlowPane fx:id="productsFlowPane" prefHeight="395.0" prefWidth="718.0" style="-fx-background-color: #5e6d70;" vgap="4.0" />
+                        <FlowPane fx:id="productsFlowPane" prefHeight="402.0" prefWidth="986.0" style="-fx-background-color: #5e6d70;" vgap="4.0" />
                      </content>
                   </ScrollPane>
                </children>
@@ -70,8 +68,14 @@
                   <Font size="48.0" />
                </font>
             </Label>
-            <Button fx:id="varukorgButton" layoutX="1080.0" layoutY="19.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="305.0" styleClass="varukorgButton" stylesheets="@HeaderStyle.css" text="Varukorg" textFill="WHITE" />
+            <Button fx:id="varukorgButton" layoutX="1080.0" layoutY="19.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="305.0" styleClass="varukorgButton" stylesheets="@HeaderStyle.css" textFill="WHITE" />
             <Button layoutX="970.0" layoutY="27.0" mnemonicParsing="false" onAction="#handleSearchAction" text="Sök" />
+            <Label fx:id="costLabel" layoutX="1300.0" layoutY="31.0" text="3456.60" />
+            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="1100.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imgs/icons8-buying-24.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="MenuBar" layoutY="80.0" prefHeight="80.0" prefWidth="1400.0" styleClass="MenuBar" stylesheets="@HeaderStyle.css">

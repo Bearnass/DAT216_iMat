@@ -3,6 +3,10 @@
     src: url('Montserrat-VariableFont_wght.ttf');
 }
 
+.root{
+    -fx-font-family: "Montserrat";
+}
+
 .Header{
     -fx-background-color: #3E6B85;
 
