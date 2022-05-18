@@ -104,7 +104,7 @@ public class iMatMiniController implements Initializable, ShoppingCartListener {
 
         updateBottomPanel();
         
-        setupAccountPane();
+        //setupAccountPane();
         
     }
 

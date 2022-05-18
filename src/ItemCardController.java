@@ -60,6 +60,7 @@ public class ItemCardController extends AnchorPane implements ShoppingCartListen
 
     @FXML
     public void addFirstWare(){
+        increaseWares();
         addWareButton.setVisible(false);
     }
 

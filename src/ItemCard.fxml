@@ -10,7 +10,6 @@
 <fx:root fx:id="ItemCard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="175.0" styleClass="ItemCard" stylesheets="@ItemCardCss.css" type="AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fx:id="itemCardImageImageView" fitHeight="175.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true" styleClass="itemCardImageImageView" />
-      <ImageView fx:id="itemCardImageImageView1" fitHeight="175.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true" />
       <Label fx:id="itemCardNameLabel" layoutX="14.0" layoutY="210.0" text="itemCardNameLabel" />
       <Label fx:id="itemCardBrandLabel" layoutX="14.0" layoutY="235.0" text="itemCardBrandLabel" />
       <Label fx:id="itemCardWeightLabel" layoutX="14.0" layoutY="253.0" text="itemCardWeightLabel" />

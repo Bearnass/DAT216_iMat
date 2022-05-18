@@ -89,20 +89,11 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="menuBarAccountButton" layoutX="1276.0" layoutY="16.0" mnemonicParsing="false" text="Logga in">
+            <Button fx:id="menuBarAccountButton" layoutX="1200.0" layoutY="16.0" mnemonicParsing="false" text="Logga in">
                <graphic>
                   <ImageView fx:id="menuBarAccountImageView" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@imgs/icons8-person-64.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-          <Button fx:id="menuBarServiceButton" layoutX="1143.0" layoutY="16.0" mnemonicParsing="false" prefHeight="26.0" text="Kundtjänst">
-               <graphic>
-                  <ImageView fx:id="menuBarServiceImageView" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@imgs/icons8-headphone-58.png" />
                      </image>
                   </ImageView>
                </graphic>
