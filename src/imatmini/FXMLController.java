@@ -10,7 +10,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 
 /**
- * iMat.FXML Controller class
+ * imatmini.FXML Controller class
  *
  * @author oloft
  */
