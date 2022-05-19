@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <StackPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane prefHeight="200.0" prefWidth="485.0">
+               <children>
+                  <AnchorPane layoutX="570.0" prefHeight="602.0" prefWidth="330.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label layoutX="116.0" layoutY="9.0" text="Varukorg">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="cartExitButton" layoutX="300.0" layoutY="14.0" mnemonicParsing="false" />
+                        <ScrollPane fx:id="cartItemsFlowPane" layoutY="49.0" prefHeight="433.0" prefWidth="330.0" />
+                        <Label layoutX="14.0" layoutY="483.0" text="TotalPris:">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cartTotalLabel" layoutX="116.0" layoutY="483.0" text="kr">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="cartCheckoutButton" layoutX="49.0" layoutY="534.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="232.0" text="Gå till kassan">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane>
+               <children>
+                  <AnchorPane id="Header" prefHeight="71.0" prefWidth="900.0" styleClass="Header" stylesheets="@HeaderStyle.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="1.0" text="iMat" textFill="WHITE" AnchorPane.leftAnchor="14.0">
+                           <font>
+                              <Font size="48.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="642.0" layoutY="14.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="243.0" styleClass="varukorgButton" stylesheets="@HeaderStyle.css" text="Varukorg" textFill="WHITE" AnchorPane.rightAnchor="14.799999999999955">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@imgs/icons8-buying-24.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <TextField fx:id="searchBar" layoutX="270.0" layoutY="17.0" prefHeight="38.0" prefWidth="359.0" promptText="Sök..." styleClass="searchBar" stylesheets="@HeaderStyle.css" />
+                        <Label fx:id="costLabel" layoutX="823.0" layoutY="21.0" text="kr" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutY="72.0" prefHeight="52.0" prefWidth="900.0" styleClass="Menubar" stylesheets="@HeaderStyle.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="72.0">
+                     <children>
+                        <ButtonBar layoutY="6.0" prefHeight="40.0" prefWidth="557.0" AnchorPane.leftAnchor="0.0">
+                           <buttons>
+                              <Button fx:id="menuBarHomeButton" mnemonicParsing="false" text="Hem">
+                                 <graphic>
+                                    <ImageView fx:id="menuBarHomeImageView" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@imgs/icons8-house-50.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="menuBarSaleButton" mnemonicParsing="false" text="Erbjudanden">
+                                 <graphic>
+                                    <ImageView fx:id="menuBarSaleImageView" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="menuBarFavouriteButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="91.0" text="Mina favoritvaror">
+                                 <graphic>
+                                    <ImageView fx:id="menuBarFavouriteImageView" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@imgs/icons8-heart-30.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="menuBarPurchaseButton" mnemonicParsing="false" text="Tidigare Inköp">
+                                 <graphic>
+                                    <ImageView fx:id="menuBarPurchaseImageView" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@imgs/icons8-basket-30.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </buttons>
+                        </ButtonBar>
+                        <Button fx:id="menuBarAccountButton" layoutX="759.0" layoutY="7.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="126.0" text="Logga in" AnchorPane.rightAnchor="14.599999999999994">
+                           <graphic>
+                              <ImageView fx:id="menuBarAccountImageView" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@imgs/icons8-person-64.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <StackPane layoutY="124.0" prefHeight="472.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="128.0">
+                     <children>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <ScrollPane fitToWidth="true" maxHeight="1500.0" prefHeight="472.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <content>
+                                    <AnchorPane prefHeight="472.0" prefWidth="900.0">
+                                       <children>
+                                          <ImageView fitHeight="170.0" fitWidth="884.0" pickOnBounds="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <image>
+                                                <Image url="@imgs/pexels-nadine-wuchenauer-1563650.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <Accordion layoutX="14.0" layoutY="226.0" prefHeight="233.0" prefWidth="235.0">
+                                             <panes>
+                                                <TitledPane animated="false" text="untitled 1">
+                                                   <content>
+                                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                                   </content>
+                                                </TitledPane>
+                                                <TitledPane animated="false" prefWidth="186.0" text="untitled 3">
+                                                   <content>
+                                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                                   </content>
+                                                </TitledPane>
+                                                <TitledPane animated="false" text="untitled 2">
+                                                   <content>
+                                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                                   </content>
+                                                </TitledPane>
+                                             </panes>
+                                          </Accordion>
+                                          <Label layoutX="14.0" layoutY="178.0" text="Sortiment">
+                                             <font>
+                                                <Font size="32.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="227.0" layoutY="178.0" text="(Kategori)">
+                                             <font>
+                                                <Font size="32.0" />
+                                             </font>
+                                          </Label>
+                                          <ButtonBar layoutX="669.0" layoutY="182.0" prefHeight="40.0" prefWidth="171.0">
+                                             <buttons>
+                                                <Button mnemonicParsing="false" text="Sortera" />
+                                                <Button mnemonicParsing="false" text="Filter" />
+                                             </buttons>
+                                          </ButtonBar>
+                                          <Label layoutX="14.0" layoutY="50.0" text="Välkommen till iMat" AnchorPane.leftAnchor="14.0">
+                                             <font>
+                                                <Font size="48.0" />
+                                             </font>
+                                          </Label>
+                                          <FlowPane fx:id="productsFlowPane" layoutX="291.0" layoutY="222.0" maxHeight="1000.0" prefHeight="246.0" prefWidth="594.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="291.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="222.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </StackPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>
