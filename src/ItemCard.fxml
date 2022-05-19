@@ -36,7 +36,7 @@
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Button>
-      <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="130.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="34.0" fitWidth="34.0" layoutX="130.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@imgs/icons8-heart-30.png" />
          </image>
