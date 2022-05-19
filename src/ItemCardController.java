@@ -43,7 +43,7 @@ public class ItemCardController extends AnchorPane implements ShoppingCartListen
 
         this.shoppingItem = new ShoppingItem(product, 0);
         itemCardNameLabel.setText(product.getName());
-        itemCardPriceLabel.setText(String.format("%.2f", product.getPrice()) + " " + ":-");
+        itemCardPriceLabel.setText(String.format("%.2f", product.getPrice()) + " kr");
         itemCardReferencePriceLabel.setText(product.getUnit());
         itemCardImageImageView.setImage(model.getImage(product, kImageWidth, kImageWidth*kImageRatio));
         if (!product.isEcological()) {
