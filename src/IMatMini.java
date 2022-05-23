@@ -21,11 +21,12 @@ public class IMatMini extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("newnewImat.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("newImat.fxml"));
         
         Scene scene = new Scene(root);
-        
+
         stage.setScene(scene);
+        stage.setMaximized(true);
         stage.show();
     }
 

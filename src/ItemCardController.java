@@ -2,6 +2,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.CartEvent;
@@ -13,6 +14,7 @@ import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.awt.event.ActionEvent;
 import java.io.IOException;
+import java.util.Objects;
 
 public class ItemCardController extends AnchorPane implements ShoppingCartListener {
     @FXML Label itemCardPriceLabel;
@@ -21,10 +23,14 @@ public class ItemCardController extends AnchorPane implements ShoppingCartListen
     @FXML Label itemCardWeightLabel;
     @FXML Label itemCardReferencePriceLabel;
     @FXML ImageView itemCardImageImageView;
+    @FXML ImageView HeartView;
     @FXML Button reduceWareButton;
     @FXML Button increaseWareButton;
     @FXML TextField amountWareField;
     @FXML Button addWareButton;
+
+    private Image filledHeart = new Image("imgs/icons8-basket-30.png");
+    private Image unfilledHeart = new Image("imgs/icons8-basket-30.png");
 
     private final static double kImageWidth = 100.0;
     private final static double kImageRatio = 0.75;
@@ -34,7 +40,6 @@ public class ItemCardController extends AnchorPane implements ShoppingCartListen
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ItemCard.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
-
         try {
             fxmlLoader.load();
         } catch (IOException exception) {
@@ -58,6 +63,15 @@ public class ItemCardController extends AnchorPane implements ShoppingCartListen
         amountWareField.setText((int) shoppingItem.getAmount() + "");
     }
 
+    @FXML
+    public void toggleHeart(){
+        if (HeartView.getImage() == filledHeart){
+            HeartView.setImage(unfilledHeart);
+
+        }else {
+            HeartView.setImage(filledHeart);
+        }
+    }
     @FXML
     public void addFirstWare(){
         increaseWares();

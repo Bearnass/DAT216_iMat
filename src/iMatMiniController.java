@@ -8,19 +8,16 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.concurrent.Flow;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
-import se.chalmers.cse.dat216.project.CartEvent;
-import se.chalmers.cse.dat216.project.CreditCard;
-import se.chalmers.cse.dat216.project.Product;
-import se.chalmers.cse.dat216.project.ShoppingCart;
-import se.chalmers.cse.dat216.project.ShoppingCartListener;
+import se.chalmers.cse.dat216.project.*;
 
 
 /**
@@ -29,7 +26,8 @@ import se.chalmers.cse.dat216.project.ShoppingCartListener;
  */
 public class iMatMiniController implements Initializable, ShoppingCartListener {
     HashMap<String, ItemCardController> itemCardController = new HashMap<>();
-    
+
+    @FXML FlowPane changeFlowPane;
     // Shopping Pane
     @FXML
     private AnchorPane shopPane;
@@ -41,6 +39,8 @@ public class iMatMiniController implements Initializable, ShoppingCartListener {
     private Label costLabel;
     @FXML
     private FlowPane productsFlowPane;
+    @FXML Label CartTotalLabel;
+
     
     // Account Pane
     @FXML
@@ -59,7 +59,12 @@ public class iMatMiniController implements Initializable, ShoppingCartListener {
     private TextField cvcField;
     @FXML
     private Label purchasesLabel;
-    
+
+    @FXML Button VarukorgButton;
+    @FXML AnchorPane iMatMain;
+
+
+
     // Other variables
     private final Model model = Model.getInstance();
 
@@ -88,6 +93,8 @@ public class iMatMiniController implements Initializable, ShoppingCartListener {
         model.placeOrder();
         costLabel.setText("Köpet klart!");
     }
+
+
     
     // Account pane actions
      @FXML
@@ -101,11 +108,10 @@ public class iMatMiniController implements Initializable, ShoppingCartListener {
         model.clearShoppingCart();
         model.getShoppingCart().addShoppingCartListener(this);
         initProducts();
-
         updateBottomPanel();
-        
+
         //setupAccountPane();
-        
+
     }
 
     void initProducts(){
@@ -123,6 +129,11 @@ public class iMatMiniController implements Initializable, ShoppingCartListener {
     public void openAccountView() {
         updateAccountPanel();
         accountPane.toFront();
+    }
+
+    public void showCart(){
+        changeFlowPane.toFront();
+        changeFlowPane.getChildren().add(new ShoppingCartController(model.getShoppingCart(), this));
     }
 
     public void closeAccountView() {
@@ -152,6 +163,7 @@ public class iMatMiniController implements Initializable, ShoppingCartListener {
     private void updateBottomPanel() {
         
         ShoppingCart shoppingCart = model.getShoppingCart();
+        costLabel.setText(String.format("%.2f",shoppingCart.getTotal()));
         costLabel.setText(String.format("%.2f",shoppingCart.getTotal()));
         
     }
