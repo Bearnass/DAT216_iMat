@@ -7,13 +7,13 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="ShoppingCart" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ShoppingCartController">
+<fx:root fx:id="ShoppingCart" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="420.0" styleClass="ShoppingCart" stylesheets="@ShoppingCartCSS.css" type="AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ScrollPane fx:id="cartScrollPane" layoutY="78.0" prefHeight="466.0" prefWidth="420.0">
+      <ScrollPane fx:id="cartScrollPane" layoutY="78.0" prefHeight="600.0" prefWidth="420.0">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="465.0" prefWidth="418.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="420.0">
                <children>
-                  <FlowPane fx:id="cartFlowPane" prefHeight="479.0" prefWidth="420.0" />
+                  <FlowPane fx:id="cartFlowPane" prefHeight="600.0" prefWidth="420.0" />
                </children>
             </AnchorPane>
         </content>
@@ -23,12 +23,12 @@
             <Font size="40.0" />
          </font>
       </Label>
-      <Button fx:id="shoppingCartExitButton" layoutX="346.0" layoutY="14.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" />
-      <Label fx:id="shoppingCartTotalLabel" layoutX="11.0" layoutY="551.0" text="shoppingCartTotalLabel">
+      <Button fx:id="shoppingCartExitButton" layoutX="346.0" layoutY="14.0" mnemonicParsing="false" onAction="#hideShoppingCart" prefHeight="40.0" prefWidth="40.0" />
+      <Label fx:id="shoppingCartTotalLabel" layoutX="14.0" layoutY="731.0" text="shoppingCartTotalLabel">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Button fx:id="shoppingCartCheckOutButton" layoutX="94.0" layoutY="630.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="232.0" text="Gå till kassan" />
+      <Button fx:id="shoppingCartCheckOutButton" layoutX="94.0" layoutY="780.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="232.0" text="Gå till kassan" />
    </children>
-</AnchorPane>
+</fx:root>

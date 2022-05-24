@@ -36,24 +36,30 @@ public class ShoppingCartController extends AnchorPane implements ShoppingCartLi
         this.shoppingCart = shoppingCart;
         parentController = iMatMiniController;
         cartFlowPane.getChildren().clear();
-        shoppingCartTotalLabel.setText(shoppingCart.getTotal() + "");
+        shoppingCartTotalLabel.setText("Totalt: " + (int)shoppingCart.getTotal() + "");
         shoppingCart.addShoppingCartListener(this);
         populateCart();
     }
 
     private void populateCart(){
         List<ShoppingItem>shoppingItems = shoppingCart.getItems();
+        cartFlowPane.setVgap(20);
         for (ShoppingItem shoppingItem : shoppingItems){
             cartFlowPane.getChildren().add(new ShoppingCartItemController(shoppingItem));
         }
     }
 
-    public void showCart(){
-        ShoppingCart.setVisible(true);
+    public void hideShoppingCart(){
+        parentController.hideCart();
     }
 
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
-
+        cartFlowPane.getChildren().clear();
+        List<ShoppingItem>shoppingItems = shoppingCart.getItems();
+        for (ShoppingItem shoppingItem : shoppingItems){
+            cartFlowPane.getChildren().add(new ShoppingCartItemController(shoppingItem));
+        }
+        shoppingCartTotalLabel.setText(shoppingCart.getTotal() + "");
     }
 }

@@ -23,6 +23,7 @@ public class IMatHeaderController {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
+
     }
 
     public void displayCart(){

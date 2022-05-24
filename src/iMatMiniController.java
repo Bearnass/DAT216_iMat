@@ -75,7 +75,7 @@ public class iMatMiniController implements Initializable, ShoppingCartListener {
     }
     
     @FXML
-    private void handleSearchAction(ActionEvent event) {
+    private void handleSearchAction() {
         
         List<Product> matches = model.findProducts(searchBar.getText());
         updateProductList(matches);
@@ -108,8 +108,12 @@ public class iMatMiniController implements Initializable, ShoppingCartListener {
         model.clearShoppingCart();
         model.getShoppingCart().addShoppingCartListener(this);
         initProducts();
+        searchBar.textProperty().addListener((observable) ->{
+            handleSearchAction();
+        });
         updateBottomPanel();
-
+        changeFlowPane.toBack();
+        changeFlowPane.getChildren().clear();
         //setupAccountPane();
 
     }
@@ -132,8 +136,14 @@ public class iMatMiniController implements Initializable, ShoppingCartListener {
     }
 
     public void showCart(){
+        changeFlowPane.setVisible(true);
         changeFlowPane.toFront();
         changeFlowPane.getChildren().add(new ShoppingCartController(model.getShoppingCart(), this));
+    }
+
+    public void hideCart(){
+        changeFlowPane.setVisible(false);
+        changeFlowPane.toBack();
     }
 
     public void closeAccountView() {

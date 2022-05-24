@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="iMatMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMatMiniController">
+<AnchorPane fx:id="iMatMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMatMiniController">
     <children>
         <AnchorPane id="Header" prefHeight="71.0" prefWidth="900.0" styleClass="Header" stylesheets="@HeaderStyle.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -23,7 +23,7 @@
                         <Font size="48.0" />
                     </font>
                 </Label>
-                <Button fx:id="VarukorgButton" contentDisplay="RIGHT" layoutX="642.0" layoutY="14.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="243.0" styleClass="varukorgButton" stylesheets="@HeaderStyle.css" text="Varukorg" textFill="WHITE" AnchorPane.rightAnchor="14.799999999999955">
+                <Button fx:id="VarukorgButton" contentDisplay="RIGHT" layoutX="642.0" layoutY="14.0" mnemonicParsing="false" onAction="#showCart" prefHeight="43.0" prefWidth="243.0" styleClass="varukorgButton" stylesheets="@HeaderStyle.css" text="Varukorg" textFill="WHITE" AnchorPane.rightAnchor="14.799999999999955">
                     <font>
                         <Font size="20.0" />
                     </font>
@@ -163,6 +163,6 @@
                 </AnchorPane>
             </children>
         </StackPane>
-      <FlowPane fx:id="changeFlowPane" layoutX="590.0" prefHeight="593.0" prefWidth="314.0" />
+      <FlowPane fx:id="changeFlowPane" layoutX="1110.0" prefHeight="900.0" prefWidth="420.0" />
     </children>
 </AnchorPane>
