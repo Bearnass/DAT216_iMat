@@ -128,6 +128,14 @@ public class iMatMiniController implements Initializable, ShoppingCartListener {
             productsFlowPane.getChildren().add(itemCardController1);
         }
     }
+
+    public void showHomePage() {
+        updateProductList(model.getProducts());
+    }
+
+    public void showFavouritesPage() {
+        updateProductList(model.getFavourites());
+    }
     
     // Navigation
     public void openAccountView() {
@@ -159,15 +167,12 @@ public class iMatMiniController implements Initializable, ShoppingCartListener {
    
     
     private void updateProductList(List<Product> products) {
-
         productsFlowPane.getChildren().clear();
-
         for (Product product : products) {
             if(itemCardController.containsKey(product.getName())){
                 productsFlowPane.getChildren().add(itemCardController.get(product.getName()));
             }
         }
-
     }
     
     private void updateBottomPanel() {

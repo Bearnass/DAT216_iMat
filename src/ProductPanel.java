@@ -33,7 +33,7 @@ public class ProductPanel extends AnchorPane {
 
     public ProductPanel(Product product) {
         
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ProductPanel.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ItemCard.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 

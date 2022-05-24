@@ -1,17 +1,19 @@
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 
+import javax.swing.*;
 import java.io.IOException;
 
 public class MenuBarController extends AnchorPane {
-    @FXML
-    Button menuBarHomeButton;
-    @FXML Button menuBarSaleButton;
-    @FXML Button menuBarFavouriteButton;
-    @FXML Button menuBarPurchaseButton;
-    @FXML Button menuBarServiceButton;
+    @FXML ToggleGroup menuBar;
+    @FXML ToggleButton menuBarHomeToggleButton;
+    @FXML ToggleButton menuBarSaleToggleButton;
+    @FXML ToggleButton menuBarFavouritesToggleButton;
+    @FXML ToggleButton menuBarPurchasesToggleButton;
     @FXML Button menuBarAccountButton;
 
     public MenuBarController(){
@@ -24,12 +26,16 @@ public class MenuBarController extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
+        System.out.println("/////");
+        System.out.println(menuBar.getSelectedToggle());
     }
 
     @FXML
-    public void showHomepage(){}
+    public void showHomepage() {
+
+    }
     @FXML
-    public void showOffers(){}
+    public void showSale(){}
     @FXML
     public void showFavourites(){}
     @FXML

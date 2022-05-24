@@ -132,4 +132,14 @@ public class Model {
     public void shutDown() {
         iMatDataHandler.shutDown();
     }
+
+    public List<Product> getFavourites() {
+        return iMatDataHandler.favorites();
+    }
+    public void setFavourite(Product p) {
+        iMatDataHandler.addFavorite(p);
+    }
+    public void deleteFavourite(Product p) {
+        iMatDataHandler.removeFavorite(p);
+    }
 }
