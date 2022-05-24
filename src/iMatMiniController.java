@@ -161,7 +161,7 @@ public class iMatMiniController implements Initializable, ShoppingCartListener {
     
     // Shope pane methods
     @Override
-     public void shoppingCartChanged(CartEvent evt) {
+    public void shoppingCartChanged(CartEvent evt) {
         updateBottomPanel();
     }
    

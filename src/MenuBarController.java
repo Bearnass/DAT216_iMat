@@ -35,13 +35,9 @@ public class MenuBarController extends AnchorPane {
 
     }
     @FXML
-    public void showSale(){}
+    public void showFavouritesPage(){}
     @FXML
-    public void showFavourites(){}
-    @FXML
-    public void showPreviousPurchases(){}
-    @FXML
-    public void showCustomerService(){}
+    public void showPreviousPurchasesPage(){}
     @FXML
     public void logIn(){}
 }

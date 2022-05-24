@@ -85,6 +85,7 @@ public class ItemCardController extends AnchorPane implements ShoppingCartListen
 
         if (shoppingItem.getAmount() < 2){
             model.getShoppingCart().addItem(shoppingItem);
+            addWareButton.setVisible(false);
         }
         model.getShoppingCart().fireShoppingCartChanged(shoppingItem, true);
     }

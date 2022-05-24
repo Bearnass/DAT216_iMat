@@ -7,6 +7,8 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,7 +16,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="iMatMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMatMiniController">
+<AnchorPane fx:id="iMatMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMatMiniController">
     <children>
         <AnchorPane id="Header" prefHeight="71.0" prefWidth="900.0" styleClass="Header" stylesheets="@HeaderStyle.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -38,11 +40,7 @@
             <TextField fx:id="searchBar" layoutX="270.0" layoutY="17.0" prefHeight="38.0" prefWidth="359.0" promptText="Sök..." styleClass="searchBar" stylesheets="@HeaderStyle.css" AnchorPane.leftAnchor="270.00000000000006" AnchorPane.rightAnchor="400.0" />
             <Button layoutX="450.0" layoutY="22.0" mnemonicParsing="false" onAction="#handleSearchAction" AnchorPane.rightAnchor="414.0">
                <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@imgs/icons8-search-24.png" />
-                     </image>
-                  </ImageView>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
                </graphic>
             </Button>
             <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="658.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="212.0">
@@ -54,40 +52,43 @@
         </AnchorPane>
         <AnchorPane layoutY="72.0" prefHeight="52.0" prefWidth="900.0" styleClass="Menubar" stylesheets="@HeaderStyle.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="72.0">
             <children>
-                <ButtonBar layoutY="6.0" prefHeight="40.0" prefWidth="557.0" AnchorPane.leftAnchor="0.0">
+                <ButtonBar layoutY="6.0" prefHeight="40.0" prefWidth="632.0" AnchorPane.leftAnchor="0.0">
                     <buttons>
-                        <Button fx:id="menuBarHomeButton" mnemonicParsing="false" text="Hem">
-                            <graphic>
+                  <ToggleButton mnemonicParsing="false" onAction="#showHomePage" selected="true" text="Hem">
+                     <graphic>
                                 <ImageView fx:id="menuBarHomeImageView" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@imgs/icons8-house-50.png" />
                                     </image>
                                 </ImageView>
-                            </graphic>
-                        </Button>
-                        <Button fx:id="menuBarSaleButton" mnemonicParsing="false" text="Erbjudanden">
-                            <graphic>
+                     </graphic>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="menuBarToggleGroup" />
+                     </toggleGroup>
+                  </ToggleButton>
+                  <ToggleButton mnemonicParsing="false" text="Erbjudanden" toggleGroup="$menuBarToggleGroup">
+                     <graphic>
                                 <ImageView fx:id="menuBarSaleImageView" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
-                            </graphic>
-                        </Button>
-                        <Button fx:id="menuBarFavouriteButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="91.0" text="Mina favoritvaror">
-                            <graphic>
+                     </graphic>
+                  </ToggleButton>
+                  <ToggleButton mnemonicParsing="false" onAction="#showFavouritesPage" text="Mina favoritvaror" toggleGroup="$menuBarToggleGroup">
+                     <graphic>
                                 <ImageView fx:id="menuBarFavouriteImageView" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@imgs/icons8-heart-30.png" />
                                     </image>
                                 </ImageView>
-                            </graphic>
-                        </Button>
-                        <Button fx:id="menuBarPurchaseButton" mnemonicParsing="false" text="Tidigare Inköp">
-                            <graphic>
+                     </graphic>
+                  </ToggleButton>
+                  <ToggleButton mnemonicParsing="false" prefWidth="164.0" text="Tidigare inköp" toggleGroup="$menuBarToggleGroup">
+                     <graphic>
                                 <ImageView fx:id="menuBarPurchaseImageView" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@imgs/icons8-basket-30.png" />
                                     </image>
                                 </ImageView>
-                            </graphic>
-                        </Button>
+                     </graphic>
+                  </ToggleButton>
                     </buttons>
                 </ButtonBar>
                   <Button fx:id="menuBarAccountButton" layoutX="759.0" layoutY="7.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="126.0" text="Logga in" AnchorPane.rightAnchor="14.599999999999994">
@@ -110,7 +111,7 @@
                             <content>
                                 <AnchorPane prefHeight="472.0" prefWidth="900.0">
                                     <children>
-                                        <ImageView fitHeight="170.0" fitWidth="884.0" pickOnBounds="true" smooth="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                        <ImageView fitHeight="170.0" fitWidth="1440.0" pickOnBounds="true" smooth="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <image>
                                     <Image url="@imgs/pexels-nadine-wuchenauer-1563650.jpg" />
                                  </image></ImageView>
