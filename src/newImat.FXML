@@ -7,6 +7,8 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,7 +16,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="iMatMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMatMiniController">
+<AnchorPane fx:id="iMatMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMatMiniController">
     <children>
         <AnchorPane id="Header" prefHeight="71.0" prefWidth="900.0" styleClass="Header" stylesheets="@HeaderStyle.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -56,38 +58,41 @@
             <children>
                 <ButtonBar layoutY="6.0" prefHeight="40.0" prefWidth="557.0" AnchorPane.leftAnchor="0.0">
                     <buttons>
-                        <Button fx:id="menuBarHomeButton" mnemonicParsing="false" text="Hem">
-                            <graphic>
+                  <ToggleButton fx:id="menuBarHomeToggleButton" alignment="CENTER_LEFT" mnemonicParsing="false" selected="true" text="Hem">
+                     <graphic>
                                 <ImageView fx:id="menuBarHomeImageView" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@imgs/icons8-house-50.png" />
                                     </image>
                                 </ImageView>
-                            </graphic>
-                        </Button>
-                        <Button fx:id="menuBarSaleButton" mnemonicParsing="false" text="Erbjudanden">
-                            <graphic>
+                     </graphic>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="menuBar" />
+                     </toggleGroup>
+                  </ToggleButton>
+                  <ToggleButton fx:id="menuBarSaleToggleButton" alignment="CENTER_LEFT" mnemonicParsing="false" text="Erbjudanden" toggleGroup="$menuBar">
+                     <graphic>
                                 <ImageView fx:id="menuBarSaleImageView" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
-                            </graphic>
-                        </Button>
-                        <Button fx:id="menuBarFavouriteButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="91.0" text="Mina favoritvaror">
-                            <graphic>
+                     </graphic>
+                  </ToggleButton>
+                  <ToggleButton fx:id="menuBarFavouritesToggleButton" alignment="CENTER_LEFT" mnemonicParsing="false" text="Mina favoritvaror" toggleGroup="$menuBar">
+                     <graphic>
                                 <ImageView fx:id="menuBarFavouriteImageView" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@imgs/icons8-heart-30.png" />
                                     </image>
                                 </ImageView>
-                            </graphic>
-                        </Button>
-                        <Button fx:id="menuBarPurchaseButton" mnemonicParsing="false" text="Tidigare Inköp">
-                            <graphic>
+                     </graphic>
+                  </ToggleButton>
+                  <ToggleButton fx:id="menubarPurchasesToggleButton" alignment="CENTER_LEFT" mnemonicParsing="false" text="tidigare inköp" toggleGroup="$menuBar">
+                     <graphic>
                                 <ImageView fx:id="menuBarPurchaseImageView" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@imgs/icons8-basket-30.png" />
                                     </image>
                                 </ImageView>
-                            </graphic>
-                        </Button>
+                     </graphic>
+                  </ToggleButton>
                     </buttons>
                 </ButtonBar>
                   <Button fx:id="menuBarAccountButton" layoutX="759.0" layoutY="7.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="126.0" text="Logga in" AnchorPane.rightAnchor="14.599999999999994">

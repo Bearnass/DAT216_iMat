@@ -3,12 +3,13 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root fx:id="ItemCard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="175.0" styleClass="ItemCard" stylesheets="@ItemCardCss.css" type="AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="ItemCard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="175.0" styleClass="ItemCard" stylesheets="@ItemCardCss.css" type="AnchorPane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fx:id="itemCardImageImageView" fitHeight="175.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true" styleClass="itemCardImageImageView" />
       <Label fx:id="itemCardNameLabel" layoutX="11.0" layoutY="175.0" text="itemCardNameLabel">
@@ -35,16 +36,19 @@
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Button>
-      <ImageView fx:id="HeartView" fitHeight="33.0" fitWidth="33.0" layoutX="130.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@imgs/icons8-heart-30.png" />
-         </image>
-      </ImageView>
       <Label fx:id="itemCardPriceLabel" alignment="CENTER" layoutX="3.0" prefHeight="80.0" prefWidth="80.0" styleClass="itemCardPriceLabel" stylesheets="@ItemCardCss.css" text="kr" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Button layoutX="74.0" layoutY="142.0" mnemonicParsing="false" onAction="#toggleHeart" text="Button" />
+      <ToggleButton fx:id="addFavouriteToggleButton" layoutX="124.0" layoutY="287.0" mnemonicParsing="false" onAction="#toggleHeart" prefHeight="35.0" prefWidth="40.0" style="-fx-background-color: #FFFFFF;">
+         <graphic>
+            <ImageView fx:id="HeartView" fitHeight="33.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imgs/icons8-heart-30.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </ToggleButton>
    </children>
 </fx:root>

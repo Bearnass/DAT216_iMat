@@ -2,19 +2,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import se.chalmers.cse.dat216.project.CartEvent;
-import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.*;
 
 import javafx.scene.control.Label;
-import se.chalmers.cse.dat216.project.ShoppingCartListener;
-import se.chalmers.cse.dat216.project.ShoppingItem;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
-import java.util.Objects;
 
 public class ItemCardController extends AnchorPane implements ShoppingCartListener {
     @FXML Label itemCardPriceLabel;
@@ -28,10 +24,12 @@ public class ItemCardController extends AnchorPane implements ShoppingCartListen
     @FXML Button increaseWareButton;
     @FXML TextField amountWareField;
     @FXML Button addWareButton;
+    @FXML ToggleButton addFavouriteToggleButton;
 
-    private Image filledHeart = new Image("imgs/icons8-basket-30.png");
+    private Image filledHeart = new Image("imgs/icons8-heart-30.png");
     private Image unfilledHeart = new Image("imgs/icons8-basket-30.png");
 
+    private Product product;
     private final static double kImageWidth = 100.0;
     private final static double kImageRatio = 0.75;
     private ShoppingItem shoppingItem;
@@ -45,7 +43,7 @@ public class ItemCardController extends AnchorPane implements ShoppingCartListen
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-
+        this.product = product;
         this.shoppingItem = new ShoppingItem(product, 0);
         itemCardNameLabel.setText(product.getName());
         itemCardPriceLabel.setText(String.format("%.2f", product.getPrice()) + " kr");
@@ -64,14 +62,16 @@ public class ItemCardController extends AnchorPane implements ShoppingCartListen
     }
 
     @FXML
-    public void toggleHeart(){
-        if (HeartView.getImage() == filledHeart){
-            HeartView.setImage(unfilledHeart);
-
-        }else {
+    public void toggleHeart() {
+        if (addFavouriteToggleButton.isSelected()) {
             HeartView.setImage(filledHeart);
+            model.setFavourite(product);
+        } else {
+            HeartView.setImage(unfilledHeart);
+            model.deleteFavourite(product);
         }
     }
+
     @FXML
     public void addFirstWare(){
         increaseWares();
@@ -96,6 +96,7 @@ public class ItemCardController extends AnchorPane implements ShoppingCartListen
         }
         if (shoppingItem.getAmount() == 0){
             model.getShoppingCart().removeItem(shoppingItem);
+            addWareButton.setVisible(true);
         }
         setAmountWareField();
         model.getShoppingCart().fireShoppingCartChanged(shoppingItem, true);
